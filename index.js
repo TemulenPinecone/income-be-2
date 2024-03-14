@@ -32,9 +32,25 @@ app.get("/users", async (req, res) => {
   } finally {
     client.release();
   }
-
   res.status(200).send({ message: "success" });
 });
+
+app.post()
+
+// CREATE TABLE
+// app.get("/init", async (req, res) => {
+//   const client = await pool.connect();
+//   try {
+//     client.query(
+//       "CREATE TABLE users(name VARCHAR(255), age INT, phone VARCHAR(255), email VARCHAR(255))"
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   } finally {
+//     client.release();
+//   }
+//   res.status(200).send({ message: "success" });
+// });
 
 app.listen(4000, () => {
   console.log("Server is running on port 4000");
