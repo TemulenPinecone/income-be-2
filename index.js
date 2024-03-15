@@ -35,7 +35,19 @@ app.get("/users", async (req, res) => {
   res.status(200).send({ message: "success" });
 });
 
-app.post()
+app.post("/add-user", async (req, res) => {
+  const newUser = req.body;
+  const client = pool.connect();
+  try {
+    (await client).query("INSERT INTO ");
+  } catch (e) {
+    console.log(e);
+  } finally {
+    client.release();
+  }
+
+  res.status(200).send({ message: "User added successfully" });
+});
 
 // CREATE TABLE
 // app.get("/init", async (req, res) => {
@@ -52,6 +64,6 @@ app.post()
 //   res.status(200).send({ message: "success" });
 // });
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
-});
+// app.listen(4000, () => {
+//   console.log("Server is running on port 4000");
+// });
